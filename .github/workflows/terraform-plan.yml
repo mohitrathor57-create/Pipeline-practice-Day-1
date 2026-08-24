@@ -1,4 +1,4 @@
-name: Terraform Plan
+name: Terraform Plan - Dev
 
 on:
   pull_request:
@@ -7,7 +7,6 @@ on:
 
   workflow_dispatch:
 
-# GitHub Actions ko OIDC token generate karne ki permission
 permissions:
   contents: read
   id-token: write
@@ -20,7 +19,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./Envirnment/Dev
+        working-directory: ./Environment/Dev
 
     steps:
 
@@ -30,7 +29,6 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
 
-      # Azure me OIDC ke through login
       - name: Azure Login
         uses: azure/login@v2
         with:
